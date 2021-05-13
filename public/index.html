@@ -22,10 +22,19 @@
             console.log('Perdimos comunicacion con el servidor');
         });
 
-        socket.emit('mensajealservidor', { nombre: 'fernando' });
+        socket.emit('mensajealservidor-WEB', 'Acabo de entrar yo WEB');
+
+        /*   socket.on('respuestaalcliente-WEB', function (payload) {
+              console.log('Mensaje del servidor', payload)
+          }) */
 
         socket.on('respuestaalcliente', function (payload) {
-            console.log('El servidor me responde', payload)
+            console.log('mensaje del servidor', payload)
+        })
+
+        socket.on('bandas-activas', function (bands) {
+            console.clear();
+            console.table(bands)
         })
     </script>
 </body>
